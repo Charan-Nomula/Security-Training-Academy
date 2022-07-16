@@ -1,0 +1,417 @@
+body{
+	margin: 0;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+nav{
+	background-color: black;
+	text-align: center;
+	color: white;
+	height: 80px;
+	padding-top: 13px;
+}
+
+.heading{
+	display: inline;
+	font-family:'Lucida Console',monospace;
+	font-size: 30px;
+	font-weight: bold;
+	width: 50%;
+	margin-left: 0%;
+}
+
+
+#profile{
+	height: 52px;
+	width: 50px;
+	border-radius: 50%;
+	float: left;
+	padding-top: 5px;
+	margin-left: 1%;
+
+}
+.name{
+	float: left;
+	border: 1px solid black;
+	border-radius: 50%;
+	height: 50px;
+	width: 50px;
+	position: absolute;
+
+	padding-top: 1.4%;
+	padding-right: 2%;
+	visibility: hidden;
+	transition: 10s;
+	margin-left: 1%;
+	font-family: "Lucida Console", "Courier New";
+	background: rgba(0, 0, 0, 0.6);
+	font-size: 13px;
+	font-style: italic;
+	font-weight: bold;
+}
+.icon{
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+}
+
+.menu{
+  	width: 35px;
+  	height: 5px;
+  	background-color: white;
+  	margin: 5px;
+  	margin-bottom: 0px;
+}
+.menu-div{
+	float: right;
+	width: 50px;
+	margin-right: 1%;
+	margin-top:  ;
+	margin-bottom: 0%;
+	cursor: pointer;
+}
+
+/*body part*/
+.left{
+	float: left;
+	width: 20%;
+	height: auto;
+}
+.middle{
+	margin: 0 auto;
+	float: left;
+	width: 50%;
+}
+
+.right{
+	float: left;
+	width: 30%;
+}
+
+
+/*dropdown  and navbar*/
+.navigation{
+	display: flex;
+	list-style-type: none;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	background-color: rgb(220, 0, 0);
+	padding: 0 33%;
+	position: relative;
+	font-family:'Lucida Console',monospace;
+	font-weight: bold;
+}
+
+.navigation ul{
+	display: flex;
+	list-style-type: none;
+}
+.navigation ul li{
+	/*padding: 10px 40px;*/
+	position: relative;
+	margin: 0 30% ;
+}
+
+.dropdown ul{
+	display: flex;
+	list-style-type: none;
+	width: 100%;
+}
+.dropdown ul li{
+	padding-top: 10px;
+	padding-left: 0px;
+	position: relative;
+	margin: 0 0;
+	width: 100px;
+	margin-left: 10px;
+}
+.dropdown{
+	display: none;
+}
+
+
+.dropdown-sub ul{
+	display: flex;
+	list-style-type: none;
+	width: 100%;
+}
+.dropdown-sub ul li{
+	padding-top: 10px;
+	padding-left: 0px;
+	position: relative;
+	margin: 0 0;
+	width: 100px;
+	margin-left: 10px;
+}
+.dropdown-sub{
+	display: none;
+}
+
+
+.dropdown-sub1 ul{
+	display: flex;
+	list-style-type: none;
+	width: 100%;
+}
+.dropdown-sub1 ul li{
+	padding-top: 10px;
+	padding-left: 0px;
+	position: relative;
+	margin: 0 0;
+	width: 100px;
+	margin-left: 10px;
+}
+.dropdown-sub1{
+	display: none;
+}
+
+.navigation ul li:hover .dropdown{
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 100%;
+	background-color: rgb(220, 0, 0);
+	color: white;
+}
+.navigation ul li:hover .dropdown ul{
+	display: block;
+}
+
+
+.dropdown ul li:hover .dropdown-sub{
+	display: block;
+	position: absolute;
+	left: 100px;
+	top: 0;
+	background-color: rgb(220, 0, 0);
+}
+.dropdown ul li:hover .dropdown-sub ul{
+	display: block;
+}
+
+
+.dropdown ul li:hover .dropdown-sub1{
+	display: block;
+	position: absolute;
+	left: 100px;
+	top: 0;
+	background-color: rgb(220, 0, 0);
+}
+.dropdown ul li:hover .dropdown-sub1 ul{
+	display: block;
+}
+
+.navigation ul li a:hover{
+	color: black;
+	cursor: pointer;
+}
+
+/*vertical bar*/
+/*----------------------verticle bar-------------------------------------------------------*/
+.vnav{
+	float: right;
+	width: 5%;
+	height: ;
+}
+.vnav{
+	list-style-type: none;
+	align-items: center;
+	justify-content: space-between;
+	background-color: rgb(220, 0, 0);
+	padding-top: 0%;
+	position: relative;
+	font-family:'Lucida Console',monospace;
+	font-weight: bold;
+}
+
+.vnav ul{
+	/*display: flex;*/
+	list-style-type: none;
+}
+.vnav ul li{
+	padding-top: 70px;
+	position: relative;
+	margin: 0 30% ;
+}
+
+.dropside ul{
+	/*display: flex;*/
+	list-style-type: none;
+	width: 100%;
+}
+.dropside ul li{
+	padding-top: 10px;
+	padding-left: 10px;
+	position: relative;
+	margin: 0 0;
+	width: 100px;
+	margin-right: 0px;
+}
+.dropside{
+	display: none;
+}
+
+
+.dropside-sub ul{
+	/*display: flex;*/
+	list-style-type: none;
+	width: 100%;
+}
+.dropside-sub ul li{
+	padding-top: 10px;
+	padding-left: 0px;
+	position: relative;
+	margin: 0 0;
+	width: 100px;
+	margin-left: 10px;
+}
+.dropside-sub{
+	display: none;
+}
+
+
+.dropside-sub1 ul{
+	/*display: flex;*/
+	list-style-type: none;
+	width: 100%;
+}
+.dropside-sub1 ul li{
+	padding-top: 10px;
+	padding-left: 0px;
+	position: relative;
+	margin: 0 0;
+	width: 100px;
+	margin-left: 10px;
+}
+.dropside-sub1{
+	display: none;
+}
+
+.vnav ul li:hover .dropside{
+	display: block;
+	position: absolute;
+	top: 70%;
+	margin-right: 30px;
+	right: 0;
+	background-color: rgb(220, 0, 0);
+	color: white;
+}
+.vnav ul li:hover .dropside ul{
+	display: block;
+}
+
+
+.dropside ul li:hover .dropside-sub{
+	display: block;
+	position: absolute;
+	top: 70%;
+	margin-right: 100px;
+	right: 0;
+	background-color: rgb(220, 0, 0);
+}
+.dropside ul li:hover .dropside-sub ul{
+	display: block;
+}
+
+
+.dropside ul li:hover .dropside-sub1{
+	display: block;
+	position: absolute;
+	top: 70%;
+	margin-right: 100px;
+	right: 0;
+	background-color: rgb(220, 0, 0);
+}
+.dropside ul li:hover .dropside-sub1 ul{
+	display: block;
+}
+
+.vnav ul li a:hover{
+	color: black;
+	cursor: pointer;
+}
+
+/*---------------------------------------------------------------------------------------------*/
+
+/*Slide*/
+
+#slide{
+	max-height: 100%;
+	max-width: 100%;
+	margin-top: 2.5px;
+	width: auto;
+}
+.middle{
+	align-content: center;
+	align-items: center;
+	height: 526.5px;
+	display: inline;
+	background-color: whitesmoke;
+}
+.container{
+	/*border: 1px solid	black;*/
+	/*margin: 65px 50px 50px 50px;*/
+	margin-top: 9%;
+	margin-left: 2%;
+	align-items: center;
+	align-content: center;
+	width: 90%;
+	float: left;
+
+}
+
+.prev{
+	/*border: 1px solid black;*/
+	width: 3%;
+	float: left;
+	margin-top: 35%;
+	cursor: pointer;
+}
+.next{
+	/*border: 1px solid black;*/
+	width: 3%;
+	float: right;
+	margin-top: 35%;
+	cursor: pointer;
+}
+
+
+/*----------------------------------------------------------------*/
+.footer{
+	bottom: 0;
+	height: 30px;
+	width: 100%;
+	position: absolute;
+	text-align: center;
+	font-family:'Lucida Console',monospace;
+	font-weight: bold;
+	font-size: 12px;
+	color: white;
+	background-color: black;
+	margin-bottom: 0pxs;
+}
+
+/*-----------------------------------------*/
+.notification{
+	margin-top: 50px;
+}
+/**/
+.right{
+	/*background-color: cyan;*/
+	/*height: 500px;*/
+
+}
+.left{
+	margin-top: 5%;
+}
+.left h1{
+	text-align: center;
+	margin-top: 10%;
+	font-family: 'Lucida Console',monospace;
+	color: red;
+	
+}

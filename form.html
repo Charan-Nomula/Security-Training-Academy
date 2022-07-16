@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Validation</title>
+	<style type="text/css">
+		body{
+			margin: 0 0;
+		    background-image: url("bg1.png");
+		    background-position: center;
+		    background-size: cover;
+		}
+		table{
+			border: 2px solid seashell;
+			box-shadow: 9px 5px 15px 5px black;
+			position: relative;
+			top: 3%;
+			left: 23%;
+		}
+		.r{
+			height: 70px;
+		}
+		input{
+			height: 25px;
+		}
+		.rd{
+			margin-left: 50px;
+		}
+
+	</style>
+	<script type="text/javascript">
+		function uhpassword()
+		{
+			document.getElementById("uhp").src="eye.jpg";
+			document.getElementById("uhp").setAttribute("onmousedown","hpassword()")
+			document.getElementById("pswd").type="password";
+		}
+		function hpassword()
+		{
+			document.getElementById("uhp").src="eyec.png";
+			document.getElementById("uhp").setAttribute("onmousedown","uhpassword()")
+			document.getElementById("pswd").type="text";
+		}
+		function sub()
+		{
+			firstname()
+			lastname()
+			phnum()
+			ispassword()
+			addr()
+			return emf()
+		}
+		function firstname()
+		{
+			var sf=document.querySelector(".sfn")
+			var l=document.getElementById("nm").value;
+			sf.value=l
+			var x=/^[a-z,A-Z][a-z, ,A-Z]*$/
+			if(x.test(l))
+			{
+				if(l.length<3)
+				{
+					document.querySelector("#nm").style.border="2px solid red"
+					document.querySelector("#fne").value=document.querySelector("#fne").innerHTML="Name length should cross 3"
+					document.querySelector("#fne").style.visibility="visible"
+					return false
+				}
+				else if(l.length>3)
+				{
+					document.querySelector("#nm").style.border="2px solid green"
+					document.querySelector("#fne").style.visibility="hidden"
+					return true	
+				}
+			}
+			else
+			{
+				document.querySelector("#nm").style.border="2px solid red"
+				document.querySelector("#fne").value=document.querySelector("#fne").innerHTML="Numbers or special characters are not allowed"
+				document.querySelector("#fne").style.visibility="visible"	
+				return false
+			}
+		}
+		function lastname()
+		{
+			var sl=document.querySelector(".sln")
+			var m=document.querySelector(".mn").value;
+			sl.value=m
+			var x=/^[a-z,A-Z][a-z, ,A-Z]*$/
+			if(x.test(m))
+			{
+				if(m.length<3)
+				{
+					
+					document.querySelector(".mn").style.border="2px solid red"
+					document.querySelector("#lne").value=document.querySelector("#lne").innerHTML="Name length should cross 3"
+					document.querySelector("#lne").style.visibility="visible"
+					return false
+					
+
+				}
+				else if(m.length>3)
+				{					
+					document.querySelector(".mn").style.border="2px solid green"
+					document.querySelector("#lne").style.visibility="hidden"
+					return true			
+				}
+			}
+			else
+			{			
+				document.querySelector(".mn").style.border="2px solid red"
+				document.querySelector("#lne").value=document.querySelector("#lne").innerHTML="Numbers or special chars are not allowed"
+				document.querySelector("#lne").style.visibility="visible"
+				return false	
+			}
+		}
+		function phnum()
+		{
+			var e = document.getElementById("st");
+			var strUser = e.options[e.selectedIndex].value;
+			if(strUser=="America")
+			{
+				var p=document.querySelector("#pnumber").value;
+				var pus=/^\d{3}-\d{3}-\d{4}$/
+				if(pus.test(p))
+				{
+					document.querySelector("#pnumber").style.border="2px solid green"
+					document.querySelector(".pe").style.visibility="hidden"
+					return true
+				}
+				else
+				{
+					document.querySelector("#pnumber").style.border="2px solid red"
+					document.querySelector(".pe").value=document.querySelector(".pe").innerHTML="Enter America Phone number only"
+					document.querySelector(".pe").style.visibility="visible"
+					return false
+				}
+			}
+			else if(strUser=="India")
+			{
+				var p1=document.querySelector("#pnumber").value;
+				var pus1=/^\d{10}$/
+				if(pus1.test(p1))
+				{
+					document.querySelector("#pnumber").style.border="2px solid green"
+					document.querySelector(".pe").style.visibility="hidden"
+					return true
+				}
+				else
+				{
+					document.querySelector("#pnumber").style.border="2px solid red"
+					document.querySelector(".pe").value=document.querySelector(".pe").innerHTML="Enter Indian Phone number only"
+					document.querySelector(".pe").style.visibility="visible"
+					return false
+				}
+
+			}
+		}
+		function ispassword()
+		{
+			var pwd=document.querySelector("#pswd").value;
+			var prx=/^[a-zA-z0-9\!\@\#\$\%\^\*\~]+$/
+			if(prx.test(pwd))
+			{
+				if(pwd.length>6)
+				{
+					document.querySelector("#pswd").style.border="2px solid green"
+					return true
+				}
+				else
+				{
+					document.querySelector("#pswd").style.border="2px solid red"
+					return false
+				}
+			}
+			else
+			{
+				document.querySelector("#pswd").style.border="2px solid red"
+				return false
+			}
+		}
+		function addr()
+		{
+			var ad=document.querySelector("#adr").value;
+			document.querySelector("#adr").value=ad.replaceAll(/\d*/gi,"")
+		}
+		function validateS(input) 
+		{
+	  		const fileSize = input.files[0].size /50;
+	  		if (fileSize > 1) 
+	  		{
+		    	alert('File size exceeds 50kb');
+		    }	
+		}
+		function emf()
+		{
+		 	var em=document.getElementById("email").value;
+		 	var regEmail=/(^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-z]+(\.[a-zA-Z0-9_-])?)/
+	 		if(! regEmail.test(em))
+	 		{
+	 			document.getElementById("email").style.border="2px solid red"
+	 			document.querySelector("#eme").value=document.querySelector("#eme").innerHTML="Include a-z/A-z/0-9/@ follow valid mail pattern"
+	 			document.querySelector("#eme").style.visibility="visible"
+	 			return false
+	 		}
+		 	else
+		 	{
+		 		document.getElementById("email").style.border="2px solid green"
+		 		document.querySelector("#eme").style.visibility="hidden"
+		 		return true
+		 	}
+		}
+		function copyTextValue()
+		{
+			var x=document.querySelector("#cb")
+			if( x.checked){
+				var t1 = document.getElementById("nm").value;
+		 		var t2 =document.querySelector(".mn").value;
+		 		const t=t1+t2
+				document.getElementById("fn").value = t;
+			}	
+		} 
+		function ageis()
+		{
+			x=document.querySelector("#agc").value;
+			var y=x.split("-");
+			var yage=2022-y[0]
+			window.alert("You Are "+yage+" Years Old")
+		}
+		function cf()
+		{
+			window.alert("Are you sure..!")
+		}
+
+	</script>
+
+</head>
+<body>
+	<div id="div" onload="imchanger()" style="width: 100%;height:1500px;background-size: cover; position: absolute;">
+		<form action="aj.php" method="post" name="fch" onsubmit="return sub();">
+			<table style="height: 500px;width: 730px;margin-top:4%;">
+				<tr id="r1"><th colspan="3" style="font-size: 40px;" id="tt">Form Validation</th></tr>
+				<tr class="r">
+					<td>FirstName:<br><input type="text" name="n" id="nm" placeholder="FirstName" onkeyup="firstname()" ><div id="fne"style="color:red;visibility: hidden;" >Enter Valid firstname..!</div></td><td>LastName:<br><input type="text" name="n1" id="nmm" class="mn"placeholder="LastName" onkeyup="lastname()"><div id="lne"style="color:red;visibility: hidden;" >Enter Valid lastname..!</div></td><td>FullName:<br><input type="text" name="n2" id="fn" readonly placeholder="FullName"><input type="checkbox" id="cb" name="B"  onclick="copyTextValue();"></td>
+				</tr>
+				<tr class="r">
+					<td>Email:<br><input type="text" name="em"placeholder="Email" id="email" onkeyup="emf()"><div id="eme"style="color:red;visibility: hidden;" >Enter Valid Email..!</div></td><td>
+						<label>SelectCountry</label>
+						<select id="st">
+							<option>India</option>
+							<option>America</option>
+						</select>
+					</td><td>PhoneNumber:<br><input type="text" onkeyup="phnum()" name="pn" id="pnumber" placeholder="PhoneNumber">
+						<div class="pe" style="color:red;visibility: hidden;">Enter phn</div></td>
+				</tr>
+				<tr class="r">
+					<td>Password:<br><input type="password" onkeyup="ispassword()" name="pw" id="pswd" style="position: relative;"placeholder="Password"><img src="eye.jpg" onclick="uhpassword()" id="uhp" height="20px" width="20px" style="position: absolute;left: 155px;margin-top: 0.4rem;border-radius: 100px;cursor: pointer;"></td><td>DOB:<br><input type="date" name="pn" id="agc"><input type="checkbox" name="Bd" onclick="ageis();"></td></td>
+					<td>Address:<br><textarea style="height: 40px;" id="adr" onmouseleave="addr()" onmouseenter="addr()"></textarea></td>
+				</tr>
+				<tr>
+					<td colspan="3">
+						<fieldset>
+							<legend>Gender:</legend>
+							<input type="radio" name="a" class="rd"> Male
+							<input type="radio" name="a" class="rd"> Female
+							<input type="radio" name="a" class="rd"> Others 
+						</fieldset>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="3">
+						<fieldset>
+							<legend >Hobbies</legend>
+							<input type="checkbox" name="cb1" class="ch1"><label value="c1">Reading</label>
+							<input type="checkbox" name="cb2" class="ch2"><label value="c2" >Writing</label>
+							<input type="checkbox" name="cb3" class="ch3"><label value="c3">Swimming</label>
+							<input type="checkbox" name="cb4" class="ch4"><label value="c4" >Running</label>
+						</fieldset>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						SelectColor: <input type="color">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="3">
+						Upload image <input type="file" id="file" accept="image/*" onchange="validateS(this)">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="3">
+						<input type="checkbox" id="chk" required><label>I agree with terms of company</label><input type="reset" value="Reset" onclick="cf()" style="margin-left: 90%;">
+					</td>
+				</tr>
+				<tr>
+					<th colspan="3">
+						<input type="submit" name="bt" value="Register" style="width: 30rem;height:30px;margin-top: 15px;">
+					</th>
+				</tr>
+
+			</table>
+		</form>
+		<form>
+			<table style="height: 500px;width: 730px;margin-top:4%;">
+				<tr id="r1"><th colspan="3" style="font-size: 40px;">Form Validation</th></tr>
+				<tr class="r">
+					<td>FirstName:<br><input type="text" name="n" id="nm" class="sfn" placeholder="FirstName" onkeyup="firstname()" ><div id="fne"style="color:red;visibility: hidden;" >Enter Valid firstname..!</div></td><td>LastName:<br><input type="text" name="n1" id="nmm" class="mn sln"placeholder="LastName" onkeyup="lastname()"><div id="lne"style="color:red;visibility: hidden;" >Enter Valid lastname..!</div></td><td>FullName:<br><input type="text" name="n2" id="fn" readonly placeholder="FullName"><input type="checkbox" name="B"  onclick="copyTextValue();"></td>
+				</tr>
+				<tr class="r">
+					<td>Email:<br><input type="text" name="em"placeholder="Email" id="email" onkeyup="emf()"><div id="eme"style="color:red;visibility: hidden;" >Enter Valid Email..!</div></td><td>
+						<label>SelectCountry</label>
+						<select id="st">
+							<option>India</option>
+							<option>America</option>
+						</select>
+					</td><td>PhoneNumber:<br><input type="text" onkeyup="phnum()" name="pn" id="pnumber" placeholder="PhoneNumber">
+						<div class="pe" style="color:red;visibility: hidden;">Enter phn</div></td>
+				</tr>
+				<tr class="r">
+					<td>Password:<br><input type="password" onkeyup="ispassword()" name="pw" id="pswd" style="position: relative;"placeholder="Password"><img src="eye.jpg" onclick="uhpassword()" id="uhp" height="20px" width="20px" style="position: absolute;left: 155px;margin-top: 0.4rem;border-radius: 100px;cursor: pointer;"></td><td>DOB:<br><input type="date" name="pn" id="agc"><input type="checkbox" name="Bd" onclick="ageis();"></td></td>
+					<td>Address:<br><textarea style="height: 40px;" id="adr" onmouseleave="addr()" onmouseenter="addr()"></textarea></td>
+
+				</tr>
+				<tr>
+					<td colspan="3">
+						<fieldset>
+							<legend>Gender:</legend>
+							<input type="radio" name="a" class="rd"> Male
+							<input type="radio" name="a" class="rd"> Female
+							<input type="radio" name="a" class="rd"> Others 
+						</fieldset>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="3">
+						<fieldset>
+							<legend >Hobbies</legend>
+							<input type="checkbox" name="cb1" class="ch"><label value="c1" onclick="valthis()">Reading</label>
+							<input type="checkbox" name="cb2" class="ch"><label value="c2" onclick="valthis()">Writing</label>
+							<input type="checkbox" name="cb3" class="ch"><label value="c3" onclick="valthis()">Swimming</label>
+							<input type="checkbox" name="cb4" class="ch"><label value="c4" onclick="valthis()">Running</label>
+						</fieldset>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						SelectColor: <input type="color">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="3">
+						Upload image <input type="file" id="file" accept="image/*" onchange="validateS(this)">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="3">
+						<input type="checkbox" id="chk" required><label>I agree with terms of company</label><input type="reset" value="Reset" onclick="cf()" style="margin-left: 90%;">
+					</td>
+				</tr>
+				<tr>
+					<th colspan="3">
+						<input type="submit" name="bt" value="Register" style="width: 30rem;height:30px;margin-top: 15px;">
+					</th>
+				</tr>
+
+			</table>
+		</form>
+	</div>
+</body>
+<script type="text/javascript">
+	var i=0;
+	var im=[];
+	im[0]="dd.jpg";
+	im[1]="fort.jpg";
+	im[2]="bp.jpg";
+	function imchanger()
+	{	
+		var bg=document.querySelector("#div");
+		if(i>im.length-1)
+		{	
+			i=0;
+		}
+		bg.style.transitionDuration="3s"
+		bg.style.backgroundImage="url("+im[i]+")";
+		bg.style.transitionDuration="2s"
+		i=i+1;
+		setTimeout(imchanger,2000)
+	}
+	imchanger()
+</script>
+</html>
